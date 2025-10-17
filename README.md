@@ -1,47 +1,45 @@
-(Forex) Economic Calendar API
-==========================
-[![PHP Composer](https://github.com/andrevlima/economic-calendar-api/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/andrevlima/economic-calendar-api/actions/workflows/php.yml)
+# (Forex) Economic Calendar - Python Edition
 
-This project consists of a PHP-based API endpoint designed to rapidly deliver the current economic calendar of events in JSON format, often utilized within the Forex market. 
+[![Python](https://img.shields.io/badge/python-3.x-blue?logo=python)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/flask-2.x-blue?logo=flask)](https://flask.palletsprojects.com/)
 
-It sources its data from investing.com through web crawling techniques, extracting relevant information and presenting it in a well-structured data model, specifically in JSON format.
-It is important to note that there are no guarantees regarding its availability or stability. Potential changes on the source page (investing.com) could disrupt the web crawler's functionality, leading to possible outages or errors.
+This project is a Python-based web application that displays economic calendar data for the Forex market. It presents the data in a clean, modern, and user-friendly interface with scrollable cards.
 
-The API has been intentionally developed with simplicity in mind, both in terms of maintenance and usability, ensuring that it remains straightforward to integrate into various applications.
+Each card displays key economic event data, including the country's flag, the event name, and other relevant macroeconomic indicators.
 
-![Static Badge](https://img.shields.io/badge/composer-php-blue?logo=php)
+**Note:** This application currently uses a static `data.json` file.
 
-## Play / Installation 
-Just upload this repo files on your favourite PHP Server.
+## Features
+- **Python Backend:** The application is built with Flask, a lightweight and powerful Python web framework.
+- **Static Data:** The application uses a local `data.json` file, making it fast and reliable.
+- **Modern UI:** The frontend is designed with a clean, card-based layout that is easy to navigate and visually appealing.
 
-You can use XAMPP for example: [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
-(Put files in htdocs folder and start PHP server).
+## Installation
 
-## How to use:
+To get started, clone the repository and install the necessary dependencies.
 
-Super simple, probably your url in a PHP server with common default configurations will be available:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/economic-calendar-api.git
+    cd economic-calendar-api
+    ```
 
+2.  **Install Python dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## How to Use
+
+Once the installation is complete, you can run the application with a single command:
+
+```bash
+python3 app.py
 ```
-http://localhost/economic-calendar-api
-```
-And you will see a JSON as response like this:
-```json
-[
-  {
-    "economy": "NZD",
-    "impact": 1,
-    "data": "2018-09-09 22:45:00",
-    "name": "Manufacturing Sales Volume (QoQ) (Q2)",
-    "actual": "-1.2%",
-    "forecast": "",
-    "previous": "1.4%"
-  },
-  ...
-]
-```
+
+The application will be available at `http://127.0.0.1:5000/`. Open this URL in your web browser to see the economic calendar.
 
 ## Demo
-A demo available is [here](https://andrevlimawebh.000webhostapp.com/) (Can be broken, free server can be deleted)
+Here is a screenshot of the application in action:
 
-Tip: If you want, you are able to host it in almost free webhosts to make it online and available on the internet. 
-https://www.freehosting.com/ or https://www.000webhost.com/ and many others.
+![Application Screenshot](img/screenshot.png)
