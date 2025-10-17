@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Calendar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Economic Calendar</h1>
+        <div class="card-container">
+            {% set currency_flags = {
+                'AUD': '🇦🇺', 'CAD': '🇨🇦', 'CHF': '🇨🇭', 'CNY': '🇨🇳', 'EUR': '🇪🇺',
+                'GBP': '🇬🇧', 'INR': '🇮🇳', 'JPY': '🇯🇵', 'KRW': '🇰🇷', 'NZD': '🇳🇿',
+                'USD': '🇺🇸', 'ZAR': '🇿🇦', 'BRL': '🇧🇷', 'IDR': '🇮🇩', 'NOK': '🇳🇴',
+                'SGD': '🇸🇬'
+            } %}
+            {% for event in events %}
+                {% if event.economy %}
+                <div class="card">
+                    <div class="card-header">
+                        <span class="flag">{{ currency_flags.get(event.economy, '🏳️') }}</span>
+                        <span class="economy">{{ event.economy }}</span>
+                        <span class="impact">
+                            {% for i in range(event.impact) %}
+                                &#x1F525;
+                            {% endfor %}
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <p class="name">{{ event.name }}</p>
+                        <p class="data"><strong>Time:</strong> {{ event.data }}</p>
+                        <p class="data"><strong>Actual:</strong> {{ event.actual | default('N/A', true) }}</p>
+                        <p class="data"><strong>Forecast:</strong> {{ event.forecast | default('N/A', true) }}</p>
+                        <p class="data"><strong>Previous:</strong> {{ event.previous | default('N/A', true) }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
